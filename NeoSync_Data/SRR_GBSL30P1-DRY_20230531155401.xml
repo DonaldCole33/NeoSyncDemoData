@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SampleResultsReport>
+  <Header>
+    <LabName>MBI TS LAB</LabName>
+    <LabAddress>3471 RIVER HILLS DR., CINCINNATI OH 45244</LabAddress>
+    <SerialNumber>231285</SerialNumber>
+    <SoftwareVersion>4.2.0</SoftwareVersion>
+    <CreatedDate>2023-05-31 15:54:03</CreatedDate>
+    <AssayName>GBS LB</AssayName>
+    <AssayVersion>1.1.1</AssayVersion>
+    <AssayClassification>IVD</AssayClassification>
+    <ProtocolIdentifier>131224</ProtocolIdentifier>
+    <Disclaimer>For in vitro diagnostic (IVD) use</Disclaimer>
+    <SampleId>GBSL30P1-DRY</SampleId>
+    <PatientId />
+    <CartridgeBarcode>231102202306</CartridgeBarcode>
+    <BufferTubeBarcode>23091860002075</BufferTubeBarcode>
+    <Operator>admin</Operator>
+    <Started>2023-05-31 10:06:04</Started>
+    <SampleComments />
+    <AbortComments />
+    <TargetResults>
+      <TargetResult>
+        <TargetName>GBS</TargetName>
+        <Result>Positive</Result>
+      </TargetResult>
+    </TargetResults>
+    <Flags>
+      <Flag>
+        <Code>1003</Code>
+        <Description>Manually Entered Sample Id</Description>
+      </Flag>
+    </Flags>
+  </Header>
+</SampleResultsReport>

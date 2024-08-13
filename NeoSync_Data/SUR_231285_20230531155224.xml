@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SystemUsageReport>
+  <Header>
+    <Instrument_Serial_Number>231285</Instrument_Serial_Number>
+    <Lab_Name>MBI TS LAB</Lab_Name>
+    <Lab_Address_1>3471 RIVER HILLS DR.</Lab_Address_1>
+    <Lab_Address_2>CINCINNATI OH 45244</Lab_Address_2>
+    <Created_Date>05/31/2023 15:52</Created_Date>
+    <System_Uptime_Hours>30150</System_Uptime_Hours>
+    <Cumulative_Testing_Days>65</Cumulative_Testing_Days>
+    <Total_Tests>290</Total_Tests>
+    <Complete>278</Complete>
+    <Failed>12</Failed>
+    <Success_Rate>95.9%</Success_Rate>
+  </Header>
+  <AssayRecords>
+    <AssayRecord>
+      <Assay>C. difficile </Assay>
+      <Lot_Number>--</Lot_Number>
+      <Total_Tests>63</Total_Tests>
+      <Complete>60</Complete>
+      <Failed>3</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>95.2%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>C. difficile </Assay>
+      <Lot_Number>1</Lot_Number>
+      <Total_Tests>31</Total_Tests>
+      <Complete>29</Complete>
+      <Failed>2</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>93.5%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>C. difficile </Assay>
+      <Lot_Number>2</Lot_Number>
+      <Total_Tests>32</Total_Tests>
+      <Complete>31</Complete>
+      <Failed>1</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>96.9%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>GBS LB</Assay>
+      <Lot_Number>--</Lot_Number>
+      <Total_Tests>30</Total_Tests>
+      <Complete>29</Complete>
+      <Failed>1</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>96.7%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>GBS LB</Assay>
+      <Lot_Number>1</Lot_Number>
+      <Total_Tests>19</Total_Tests>
+      <Complete>18</Complete>
+      <Failed>1</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>94.7%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>GBS LB</Assay>
+      <Lot_Number>2</Lot_Number>
+      <Total_Tests>11</Total_Tests>
+      <Complete>11</Complete>
+      <Failed>0</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>100.0%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>SARS-CoV-2 EUA</Assay>
+      <Lot_Number>--</Lot_Number>
+      <Total_Tests>35</Total_Tests>
+      <Complete>35</Complete>
+      <Failed>0</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>100.0%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>SARS-CoV-2 EUA</Assay>
+      <Lot_Number>2</Lot_Number>
+      <Total_Tests>35</Total_Tests>
+      <Complete>35</Complete>
+      <Failed>0</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>100.0%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>SARS-CoV-2 Non-IVD</Assay>
+      <Lot_Number>--</Lot_Number>
+      <Total_Tests>10</Total_Tests>
+      <Complete>10</Complete>
+      <Failed>0</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>100.0%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>SARS-CoV-2 Non-IVD</Assay>
+      <Lot_Number>1</Lot_Number>
+      <Total_Tests>10</Total_Tests>
+      <Complete>10</Complete>
+      <Failed>0</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>100.0%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>Strep A</Assay>
+      <Lot_Number>--</Lot_Number>
+      <Total_Tests>152</Total_Tests>
+      <Complete>144</Complete>
+      <Failed>8</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>60%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>Strep A</Assay>
+      <Lot_Number>1</Lot_Number>
+      <Total_Tests>32</Total_Tests>
+      <Complete>32</Complete>
+      <Failed>0</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>100.0%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>Strep A</Assay>
+      <Lot_Number>2</Lot_Number>
+      <Total_Tests>24</Total_Tests>
+      <Complete>22</Complete>
+      <Failed>2</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>91.7%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>Strep A</Assay>
+      <Lot_Number>6</Lot_Number>
+      <Total_Tests>56</Total_Tests>
+      <Complete>53</Complete>
+      <Failed>3</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>94.6%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>Strep A</Assay>
+      <Lot_Number>7</Lot_Number>
+      <Total_Tests>9</Total_Tests>
+      <Complete>8</Complete>
+      <Failed>1</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>88.9%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>Strep A</Assay>
+      <Lot_Number>8</Lot_Number>
+      <Total_Tests>6</Total_Tests>
+      <Complete>5</Complete>
+      <Failed>1</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>83.3%</Success_Rate>
+    </AssayRecord>
+    <AssayRecord>
+      <Assay>Strep A</Assay>
+      <Lot_Number>9</Lot_Number>
+      <Total_Tests>25</Total_Tests>
+      <Complete>24</Complete>
+      <Failed>1</Failed>
+      <Aborted>0</Aborted>
+      <Success_Rate>96.0%</Success_Rate>
+    </AssayRecord>
+  </AssayRecords>
+</SystemUsageReport>

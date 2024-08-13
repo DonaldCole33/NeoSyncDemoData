@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.Metrics;
+using System.Globalization;
 using System.Xml;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -22,6 +23,8 @@ public class DirectoryScanner : IDirectoryScanner
 	private readonly List<string> _processedSrrFiles = new List<string>();
 	private readonly List<string> _processedSerFiles = new List<string>();
 	private readonly List<string> _processedSurFiles = new List<string>();
+
+	private readonly string _serialNumber = "456def";
 
 	public DirectoryScanner(ILogger<DirectoryScanner> logger, IConfiguration config, NeoSyncCommunicationService neoSyncCommunicationService)
 	{
@@ -58,13 +61,8 @@ public class DirectoryScanner : IDirectoryScanner
 		DirectoryInfo directoryToScan = new (_directoryToScan);
 
 		// Get Sample Results Reports and push data to NeoSync
-		foreach (var fileInfo in directoryToScan.GetFiles("SRR_*.xml"))
-		{
-			if (_processedSrrFiles.Contains(fileInfo.Name)) continue;
-			await ProcessSrrXmlFile(fileInfo);
-			_processedSrrFiles.Add(fileInfo.Name);
-			resultsProcessed++;
-		}
+		var result = GetResultsFromHeader();
+		await _neoSyncCommunicationService.SendResults(result);
 
 		// Get System Events Reports and upload as logs to NeoSync
 		foreach (var fileInfo in directoryToScan.GetFiles("SER_*.txt"))
@@ -76,34 +74,13 @@ public class DirectoryScanner : IDirectoryScanner
 		}
 
 		// Get System Usage Report and upload metrics to NeoSync
-		foreach (var fileInfo in directoryToScan.GetFiles("SUR_*.xml"))
-		{
-			if (_processedSurFiles.Contains(fileInfo.Name)) continue;
-			await ProcessSurXmlFile(fileInfo);
-			_processedSurFiles.Add(fileInfo.Name);
-			metricsProcessed++;
-		}
+		var metrics = GetMetricsFromHeader();
+		await _neoSyncCommunicationService.SendMetrics(metrics);
 
 		// todo: come up with some related metrics for the results? maybe from SUR files?
 		DateTime endTime = DateTime.Now;
 		_logger.LogInformation($"Scanning finished! start: {startTime:O} finish: {endTime:O}, duration: {endTime.Subtract(startTime).TotalSeconds:F3} secs");
 		_logger.LogInformation($"Result reports processed: {resultsProcessed}, Event reports processed: {eventsProcessed}, Metric reports processed: {metricsProcessed}");
-	}
-
-	private async Task ProcessSrrXmlFile(FileInfo fileInfo)
-	{
-		XmlDocument doc = new XmlDocument();
-		doc.Load(fileInfo.FullName);
-		var result = GetResultsFromHeader(doc.DocumentElement!.SelectSingleNode("Header")!);
-		await _neoSyncCommunicationService.SendResults(result);
-	}
-
-	private async Task ProcessSurXmlFile(FileInfo fileInfo)
-	{
-		XmlDocument doc = new XmlDocument();
-		doc.Load(fileInfo.FullName);
-		var result = GetMetricsFromHeader(doc.DocumentElement!.SelectSingleNode("Header")!);
-		await _neoSyncCommunicationService.SendMetrics(result);
 	}
 
 	private async Task ProcessSerTxtFile(FileInfo fileInfo)
@@ -112,106 +89,127 @@ public class DirectoryScanner : IDirectoryScanner
 		var resource = new DeviceLogFileResource
 		{
 			LogName = fileInfo.Name,
-			SerialNumber = fileInfo.Name.Split('_')[1],
+			SerialNumber = _serialNumber,
 			Payload = Convert.ToBase64String(bytes)
 		};
 		await _neoSyncCommunicationService.UploadLogs(resource);
 	}
 
-	private DeviceResultResource GetResultsFromHeader(XmlNode header)
+	private DeviceResultResource GetResultsFromHeader()
 	{
 		var result = new DeviceResultResource
 		{
 			Version = 1,
 			MessageDate = DateTimeOffset.Now,
 			SampleType = SampleType.QualityControl,
-			SerialNumber = header.SelectSingleNode("SerialNumber")!.InnerText,
-			DeviceId = header.SelectSingleNode("SerialNumber")!.InnerText,
-			FirmwareVersion = header.SelectSingleNode("SoftwareVersion")!.InnerText,
-			LocationName = header.SelectSingleNode("LabName")!.InnerText,
-			CassetteTestType = header.SelectSingleNode("SampleId")!.InnerText,
+			SerialNumber = _serialNumber,
+			DeviceId = _serialNumber,
+			FirmwareVersion = "1.5.3",
+			LocationName = "San Francisco Lab",
+			CassetteTestType = "Sample 1",
 			ResultRecords = new List<DeviceResultRecordResource>(),
-			LotNumber = "N/A" // required
+			LotNumber = "Lot A" // required
 		};
-		var assayName = header.SelectSingleNode("AssayName")!.InnerText;
-		var assayVersion = header.SelectSingleNode("AssayVersion")!.InnerText;
-		var assayClassification = header.SelectSingleNode("AssayClassification")!.InnerText;
+		var assayName = "Assay LDT";
+		var assayVersion = "1.1";
+		var assayClassification = "LDT";
 		var assay = $"{assayName} ({assayVersion} / {assayClassification})";
-		var date = DateTimeOffset.Parse(header.SelectSingleNode("Started")!.InnerText);
+		var date = DateTimeOffset.Now.AddHours(-1);
 		var sequence = 1;
-		foreach (XmlNode targetResult in header.SelectNodes("TargetResults/TargetResult"))
+		for (var i = 0; i < 5; i++) 
 		{
 			result.ResultRecords.Add(new DeviceResultRecordResource
 			{
 				SequenceNumber = sequence++,
 				AnalyteName = assay,
 				TestDate = date,
-				TestUnits = targetResult.SelectSingleNode("TargetName")!.InnerText,
-				TestValue = targetResult.SelectSingleNode("Result")!.InnerText,
+				TestUnits = $"Target {i+1}",
+				TestValue = "Negative",
 			});
 		}
 		return result;
 	}
 
-	private DeviceMetricsResource GetMetricsFromHeader(XmlNode header)
+	private DeviceMetricsResource GetMetricsFromHeader()
 	{
-		var dateString = header.SelectSingleNode("Created_Date")!.InnerText;
-		var date = DateTimeOffset.ParseExact(dateString, "MM/dd/yyyy HH:mm", new DateTimeFormatInfo());
+		var now = DateTimeOffset.Now;
+		var dateString = now.DateTime.ToString("MM/dd/yyyy HH:mm");
+		var date = DateTimeOffset.ParseExact(dateString, "MM/dd/yyyy HH:mm", new CultureInfo("en-US"));
 		var metrics = new DeviceMetricsResource
 		{
-			SerialNumber = header.SelectSingleNode("Instrument_Serial_Number")!.InnerText,
+			SerialNumber = _serialNumber,
 			Metrics = new List<DeviceMetricResource>
 			{
 				new DeviceMetricResource
 				{
 					Timestamp = date,
 					Name = "System Uptime Hours",
-					Value = double.Parse(header.SelectSingleNode("System_Uptime_Hours")!.InnerText)
+					Value = 5
 				},
 				new DeviceMetricResource
 				{
 					Timestamp = date,
 					Name = "Cumulative Testing Days",
-					Value = double.Parse(header.SelectSingleNode("Cumulative_Testing_Days")!.InnerText)
+					Value = 6
 				},
 				new DeviceMetricResource
 				{
 					Timestamp = date,
 					Name = "Overall Total Tests",
-					Value = double.Parse(header.SelectSingleNode("Total_Tests")!.InnerText)
+					Value = 15
 				},
 				new DeviceMetricResource
 				{
 					Timestamp = date,
 					Name = "Overall Passed Tests",
-					Value = double.Parse(header.SelectSingleNode("Complete")!.InnerText)
+					Value = 15
 				},
 				new DeviceMetricResource
 				{
 					Timestamp = date,
 					Name = "Overall Failed Tests",
-					Value = double.Parse(header.SelectSingleNode("Failed")!.InnerText)
+					Value = 0
 				},
 				new DeviceMetricResource
 				{
 					Timestamp = date,
 					Name = "Overall Success Rate",
-					Value = double.Parse(header.SelectSingleNode("Success_Rate")!.InnerText.Replace("%", string.Empty))
+					Value = 100
 				},
+				new DeviceMetricResource{
+					Timestamp = date,
+					Name = "Instrument Errors",
+					Value = 1
+				},
+								new DeviceMetricResource{
+					Timestamp = date,
+					Name = "Widget 1 RPMs",
+					Value = 2000
+				},
+												new DeviceMetricResource{
+					Timestamp = date,
+					Name = "Pipette 1000ml Fills",
+					Value = 2346
+				},
+												new DeviceMetricResource{
+					Timestamp = date,
+					Name = "Feature X Activated # times",
+					Value = 3
+				}
 			}
 		};
 
-		foreach (XmlNode assayRecord in header.ParentNode!.SelectNodes("AssayRecords/AssayRecord")!)
-		{
-			if (assayRecord.SelectSingleNode("Lot_Number")?.InnerText != "--") continue;
-			var name = assayRecord.SelectSingleNode("Assay")!.InnerText.Trim();
-			metrics.Metrics.Add(new DeviceMetricResource
-			{
-				Timestamp = date,
-				Name = $"{name} Success Rate",
-				Value = double.Parse(header.SelectSingleNode("Success_Rate")!.InnerText.Replace("%", string.Empty))
-			});
-		}
+		// foreach (XmlNode assayRecord in header.ParentNode!.SelectNodes("AssayRecords/AssayRecord")!)
+		// {
+		// 	if (assayRecord.SelectSingleNode("Lot_Number")?.InnerText != "--") continue;
+		// 	var name = assayRecord.SelectSingleNode("Assay")!.InnerText.Trim();
+		// 	metrics.Metrics.Add(new DeviceMetricResource
+		// 	{
+		// 		Timestamp = date,
+		// 		Name = $"{name} Success Rate",
+		// 		Value = double.Parse(header.SelectSingleNode("Success_Rate")!.InnerText.Replace("%", string.Empty))
+		// 	});
+		// }
 
 		return metrics;
 	}

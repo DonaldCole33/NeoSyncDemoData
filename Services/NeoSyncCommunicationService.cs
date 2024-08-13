@@ -64,9 +64,9 @@ public class NeoSyncCommunicationService
 				new DeviceInformationResource
 				{
 					SerialNumber = resource.SerialNumber,
-					FirmwareVersion = NotApplicable,
-					HardwareRevision = NotApplicable,
-					SoftwareVersion = NotApplicable
+					FirmwareVersion = "3.2.1",
+					HardwareRevision = "9.8.1",
+					SoftwareVersion = "1.2.3"
 				}));
 			registrationResult.EnsureSuccessStatusCode();
 			var content = await registrationResult.Content.ReadAsStringAsync();

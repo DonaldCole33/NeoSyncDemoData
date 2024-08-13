@@ -1,0 +1,155 @@
+﻿LabName	LabAddress	SiteIdentifier	SerialNumber	SoftwareVersion	Operator	FilterDateRangeStart	FilterDateRangeEnd	FilterIncludeAlerts	FilterIncludeAudits	FilterSeverity	FilterOperator
+MBI TS LAB	3471 RIVER HILLS DR., CINCINNATI OH 45244		231285	4.3.4	supervisor	05/01/2023	05/31/2023	Yes	Yes	Error, Error, Informational, Warning	-
+
+Time	Code	Type	Severity	Operator	Description	DescriptionEnglish
+2023-05-02 16:40:56	4002	Alert	Informational	System	Authentication failure for operator Tech.	Authentication failure for operator Tech.
+2023-05-02 16:41:08	4002	Alert	Informational	System	Authentication failure for operator admin.	Authentication failure for operator admin.
+2023-05-02 16:41:28	3019	Audit		admin	Operator admin logged in.	Operator admin logged in.
+2023-05-04 14:41:46	4007	Alert	Warning	System	The maximum number of days (180) since the last purge has been exceeded.   The last successful purge was performed on 9/9/2021 4:11:33 PM -04:00.	The maximum number of days (180) since the last purge has been exceeded.   The last successful purge was performed on 09/09/2021 16:11:33 -04:00.
+2023-05-04 14:41:46	4024	Alert	Warning	System	The maximum number of days (30) since the last backup has been exceeded.   The last successful backup was performed on 3/23/2023 3:23:03 PM -04:00.	The maximum number of days (30) since the last backup has been exceeded.   The last successful backup was performed on 03/23/2023 15:23:03 -04:00.
+2023-05-04 14:41:49	4020	Alert	Informational	System	Instrument serial number changed to 231285.	Instrument serial number changed to 231285.
+2023-05-04 14:42:14	3019	Audit		admin	Operator admin logged in.	Operator admin logged in.
+2023-05-08 12:26:19	4007	Alert	Warning	System	The maximum number of days (180) since the last purge has been exceeded.   The last successful purge was performed on 9/9/2021 4:11:33 PM -04:00.	The maximum number of days (180) since the last purge has been exceeded.   The last successful purge was performed on 09/09/2021 16:11:33 -04:00.
+2023-05-08 12:26:19	4024	Alert	Warning	System	The maximum number of days (30) since the last backup has been exceeded.   The last successful backup was performed on 3/23/2023 3:23:03 PM -04:00.	The maximum number of days (30) since the last backup has been exceeded.   The last successful backup was performed on 03/23/2023 15:23:03 -04:00.
+2023-05-08 12:44:22	3019	Audit		admin	Operator admin logged in.	Operator admin logged in.
+2023-05-08 12:45:19	3002	Audit		admin	Application configuration setting LIS Connectivity changed from None to ASTM.	Application configuration setting LIS Connectivity changed from None to ASTM.
+2023-05-08 12:45:19	3002	Audit		admin	Application configuration setting LIS Transport was set to TcpIp.	Application configuration setting LIS Transport was set to TcpIp.
+2023-05-08 12:45:19	3002	Audit		admin	Application configuration setting LIS Host Name was set to 192.168.86.140.	Application configuration setting LIS Host Name was set to 192.168.86.140.
+2023-05-08 12:45:19	3002	Audit		admin	Application configuration setting LIS Host Port was set to 11011.	Application configuration setting LIS Host Port was set to 11011.
+2023-05-08 12:45:20	4011	Alert	Warning	admin	Communications with the LIS Host has failed	Communications with the LIS Host has failed
+2023-05-08 12:51:45	3002	Audit		admin	Application configuration setting LIS Host Name changed from 192.168.86.140 to 169.254.218.207.	Application configuration setting LIS Host Name changed from 192.168.86.140 to 169.254.218.207.
+2023-05-08 12:52:19	4011	Alert	Warning	admin	Communications with the LIS Host has failed	Communications with the LIS Host has failed
+2023-05-08 12:52:19	4009	Alert	Warning	admin	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-08 12:52:19	3016	Audit		admin	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-08 12:52:19	4009	Alert	Warning	admin	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-08 12:52:19	3016	Audit		admin	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-08 12:52:19	4009	Alert	Warning	admin	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-08 12:52:19	3016	Audit		admin	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-08 12:52:19	4009	Alert	Warning	admin	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-08 12:52:19	3016	Audit		admin	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-08 12:52:41	3002	Audit		admin	Application configuration setting LIS Automatic Release Options changed from None to All Results.	Application configuration setting LIS Automatic Release Options changed from None to All Results.
+2023-05-08 12:52:54	4009	Alert	Warning	admin	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-08 12:52:54	3016	Audit		admin	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-08 12:52:54	4009	Alert	Warning	admin	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-08 12:52:54	3016	Audit		admin	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-08 12:52:54	4009	Alert	Warning	admin	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-08 12:52:54	3016	Audit		admin	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-08 12:52:54	4009	Alert	Warning	admin	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-08 12:52:54	3016	Audit		admin	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-08 12:54:09	4010	Alert	Warning	admin	Failed to download test orders from LIS	Failed to download test orders from LIS
+2023-05-08 12:54:10	3027	Audit		admin	LIS test orders download initiated. 0 new, 0 canceled, 0 rejected, 0 duplicates, 0 Unable to cancel, 0 orders with errors	LIS test orders download initiated. 0 new, 0 canceled, 0 rejected, 0 duplicates, 0 Unable to cancel, 0 orders with errors
+2023-05-08 12:54:10	4028	Alert	Informational	admin	Communications with the LIS Host has been restored	Communications with the LIS Host has been restored
+2023-05-12 10:27:18	3000	Audit		admin	Operator supervisor created.	Operator supervisor created.
+2023-05-12 10:27:25	3020	Audit		admin	Operator admin logged out due to user-initiated.	Operator admin logged out due to user-initiated.
+2023-05-12 10:27:39	3019	Audit		supervisor	Operator supervisor logged in.	Operator supervisor logged in.
+2023-05-12 10:27:53	4011	Alert	Warning	supervisor	Communications with the LIS Host has failed	Communications with the LIS Host has failed
+2023-05-12 10:27:53	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 10:27:54	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 10:27:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 10:27:54	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 10:27:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 10:27:54	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 10:27:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 10:27:54	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 10:27:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 10:27:54	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 10:27:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 10:27:54	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:53:56	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:53:56	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:53:56	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:53:56	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:53:56	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:53:56	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:53:56	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:53:57	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:03	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:04	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:04	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:04	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:04	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:04	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:04	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:04	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:11	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:11	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:11	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:11	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:11	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:11	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:11	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:11	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:18	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:18	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:18	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:18	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:18	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:18	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:18	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:18	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:25	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:25	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:25	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:25	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:25	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:25	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:25	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:25	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:32	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:32	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:32	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:32	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:32	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:32	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:32	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:32	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:39	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:39	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:39	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:39	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:40	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:40	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:40	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:40	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:46	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:46	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:47	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:47	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:47	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:47	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:47	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:47	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:54	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:54	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:54:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:54:54	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:54:54	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:54:54	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:55:01	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:55:01	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:55:01	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:55:01	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-12 12:55:01	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P1-DRY Assay GLB
+2023-05-12 12:55:01	3016	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS failed.	GLB test for sample GBSL30P1-DRY released to LIS failed.
+2023-05-12 12:55:02	4009	Alert	Warning	supervisor	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB	Failed to send test results to LIS for Sample GBSL30P2-DRY Assay GLB
+2023-05-12 12:55:02	3016	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS failed.	GLB test for sample GBSL30P2-DRY released to LIS failed.
+2023-05-17 12:12:43	3002	Audit		supervisor	Application configuration setting LIS Host Name changed from 169.254.218.207 to 192.168.86.182.	Application configuration setting LIS Host Name changed from 169.254.218.207 to 192.168.86.182.
+2023-05-17 12:12:44	4011	Alert	Warning	supervisor	Communications with the LIS Host has failed	Communications with the LIS Host has failed
+2023-05-17 12:16:42	3002	Audit		supervisor	Application configuration setting LIS Host Name changed from 192.168.86.182 to 169.254.218.207.	Application configuration setting LIS Host Name changed from 192.168.86.182 to 169.254.218.207.
+2023-05-17 12:17:07	3002	Audit		supervisor	Application configuration setting LastSyncDateTimeObservations was set to 05/17/2023 12:17:07 -04:00.	Application configuration setting LastSyncDateTimeObservations was set to 05/17/2023 12:17:07 -04:00.
+2023-05-17 12:17:07	4028	Alert	Informational	supervisor	Communications with the LIS Host has been restored	Communications with the LIS Host has been restored
+2023-05-17 12:17:07	3015	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS successfully.	GLB test for sample GBSL30P2-DRY released to LIS successfully.
+2023-05-17 12:17:13	3002	Audit		supervisor	Application configuration setting LastSyncDateTimeObservations changed from 05/17/2023 12:17:07 -04:00 to 05/17/2023 12:17:13 -04:00.	Application configuration setting LastSyncDateTimeObservations changed from 05/17/2023 12:17:07 -04:00 to 05/17/2023 12:17:13 -04:00.
+2023-05-17 12:17:13	3015	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS successfully.	GLB test for sample GBSL30P2-DRY released to LIS successfully.
+2023-05-17 12:17:20	3002	Audit		supervisor	Application configuration setting LastSyncDateTimeObservations changed from 05/17/2023 12:17:13 -04:00 to 05/17/2023 12:17:20 -04:00.	Application configuration setting LastSyncDateTimeObservations changed from 05/17/2023 12:17:13 -04:00 to 05/17/2023 12:17:20 -04:00.
+2023-05-17 12:17:20	3015	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS successfully.	GLB test for sample GBSL30P2-DRY released to LIS successfully.
+2023-05-17 12:17:26	3002	Audit		supervisor	Application configuration setting LastSyncDateTimeObservations changed from 05/17/2023 12:17:20 -04:00 to 05/17/2023 12:17:26 -04:00.	Application configuration setting LastSyncDateTimeObservations changed from 05/17/2023 12:17:20 -04:00 to 05/17/2023 12:17:26 -04:00.
+2023-05-17 12:17:26	3015	Audit		supervisor	GLB test for sample GBSL30P2-DRY released to LIS successfully.	GLB test for sample GBSL30P2-DRY released to LIS successfully.
+2023-05-17 12:20:30	3002	Audit		supervisor	Application configuration setting LastSyncDateTimeObservations changed from 05/17/2023 12:17:26 -04:00 to 05/17/2023 12:20:30 -04:00.	Application configuration setting LastSyncDateTimeObservations changed from 05/17/2023 12:17:26 -04:00 to 05/17/2023 12:20:30 -04:00.
+2023-05-17 12:20:30	3015	Audit		supervisor	GLB test for sample GBSL30P1-DRY released to LIS successfully.	GLB test for sample GBSL30P1-DRY released to LIS successfully.
+2023-05-17 12:22:16	3017	Audit		supervisor	Troubleshooting package spanning 05/17/2023 00:00 to 05/17/2023 23:59 successfully created with Application Logs, System Usage Report. 	Troubleshooting package spanning 05/17/2023 00:00 to 05/17/2023 23:59 successfully created with Application Logs, System Usage Report. 
+2023-05-17 12:32:19	3011	Audit		supervisor	A manual database backup was successfully created to D:\Revogene.231285.1.103.20230517T123216.bak.	A manual database backup was successfully created to D:\Revogene.231285.1.103.20230517T123216.bak.
+2023-05-17 12:50:34	3017	Audit		supervisor	Troubleshooting package spanning 03/23/2023 00:00 to 03/23/2023 23:59 successfully created with Application Logs, Database Backups, Raw Data Exports, Revogene Check Data Exports, Screen Capture Files, System Event Report, Sample Result Reports, System Usage Report, Run Reports. 	Troubleshooting package spanning 03/23/2023 00:00 to 03/23/2023 23:59 successfully created with Application Logs, Database Backups, Raw Data Exports, Revogene Check Data Exports, Screen Capture Files, System Event Report, Sample Result Reports, System Usage Report, Run Reports. 
+2023-05-17 12:52:04	3017	Audit		supervisor	Troubleshooting package spanning 03/28/2023 00:00 to 03/28/2023 23:59 successfully created with Application Logs, Database Backups, Raw Data Exports, Revogene Check Data Exports, Screen Capture Files, System Event Report, Sample Result Reports, System Usage Report, Run Reports. 	Troubleshooting package spanning 03/28/2023 00:00 to 03/28/2023 23:59 successfully created with Application Logs, Database Backups, Raw Data Exports, Revogene Check Data Exports, Screen Capture Files, System Event Report, Sample Result Reports, System Usage Report, Run Reports. 

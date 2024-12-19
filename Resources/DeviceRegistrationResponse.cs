@@ -1,4 +1,4 @@
-﻿namespace RevogeneDemo.Resources;
+﻿namespace NeoSyncDemoData.Resources;
 
 public class DeviceRegistrationResponse
 {

@@ -1,4 +1,4 @@
-﻿namespace RevogeneDemo.Constants;
+﻿namespace NeoSyncDemoData.Constants;
 
 public static class Constants
 {

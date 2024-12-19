@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RevogeneDemo.Resources;
+namespace NeoSyncDemoData.Resources;
 
 /// <summary>
 /// Device metric resource

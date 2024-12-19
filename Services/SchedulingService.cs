@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace RevogeneDemo.Services;
+namespace NeoSyncDemoData.Services;
 
 public class SchedulingService : IHostedService
 {

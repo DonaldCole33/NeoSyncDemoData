@@ -1,4 +1,4 @@
-﻿namespace RevogeneDemo.Contracts;
+﻿namespace NeoSyncDemoData.Contracts;
 
 public static class NeoSyncApiRoutes
 {

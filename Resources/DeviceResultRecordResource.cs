@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace RevogeneDemo.Resources;
+namespace NeoSyncDemoData.Resources;
 
 public class DeviceResultRecordResource
 {

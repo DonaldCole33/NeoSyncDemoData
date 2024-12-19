@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using RevogeneDemo.Contracts.Enums;
+using NeoSyncDemoData.Contracts.Enums;
 
-namespace RevogeneDemo.Resources;
+namespace NeoSyncDemoData.Resources;
 
 /// <summary>
 /// Reader results shared with NeoSync will follow this schema

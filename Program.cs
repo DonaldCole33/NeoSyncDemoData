@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using RevogeneDemo.Services;
+using NeoSyncDemoData.Services;
 
 await Host.CreateDefaultBuilder()
 .ConfigureServices((context, collection) =>

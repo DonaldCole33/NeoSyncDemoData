@@ -3,10 +3,10 @@ using System.Globalization;
 using System.Xml;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using RevogeneDemo.Contracts.Enums;
-using RevogeneDemo.Resources;
+using NeoSyncDemoData.Contracts.Enums;
+using NeoSyncDemoData.Resources;
 
-namespace RevogeneDemo.Services;
+namespace NeoSyncDemoData.Services;
 
 public interface IDirectoryScanner
 {

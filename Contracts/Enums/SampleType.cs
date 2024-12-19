@@ -1,4 +1,4 @@
-﻿namespace RevogeneDemo.Contracts.Enums;
+﻿namespace NeoSyncDemoData.Contracts.Enums;
 
 /// <summary>
 /// An enumeration value indicating whether the test is a patient test, a QC test or for

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevogeneDemo", "RevogeneDemo.csproj", "{CD7531DF-C687-42EC-8885-545EDF9462CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeoSyncDemoData", "NeoSyncDemoData.csproj", "{CD7531DF-C687-42EC-8885-545EDF9462CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RevogeneDemo.Resources;
+namespace NeoSyncDemoData.Resources;
 
 public class DeviceLogFileResource : BaseDeviceResource
 {

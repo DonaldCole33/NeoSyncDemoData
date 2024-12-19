@@ -3,10 +3,10 @@ using System.Net.Http.Headers;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using RevogeneDemo.Contracts;
-using RevogeneDemo.Resources;
+using NeoSyncDemoData.Contracts;
+using NeoSyncDemoData.Resources;
 
-namespace RevogeneDemo.Services;
+namespace NeoSyncDemoData.Services;
 
 public class NeoSyncCommunicationService
 {

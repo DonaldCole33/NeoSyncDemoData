@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace NeoSyncDemoData.Resources;
 
-public class DeviceResultRecordResource
+public class DeviceResultRecordResource : BaseDeviceInformationResource
 {
 	/// <summary>
 	/// Sequence number for multiple result records

@@ -8,7 +8,7 @@ namespace NeoSyncDemoData.Resources;
 /// <summary>
 /// Reader results shared with NeoSync will follow this schema
 /// </summary>
-public class DeviceResultResource : BaseDeviceResource, IValidatableObject
+public class DeviceResultResource : BaseDeviceInformationResource, IValidatableObject
 {
 	public const string NEOSYNC_JSON_RESULT = "NSJ";
 

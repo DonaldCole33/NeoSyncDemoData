@@ -7,7 +7,7 @@ await Host.CreateDefaultBuilder()
 .ConfigureServices((context, collection) =>
 {
 	collection.AddHttpClient<NeoSyncCommunicationService>();
-	collection.AddScoped<IDirectoryScanner, DirectoryScanner>();
+	collection.AddScoped<IRandomMetricsService, RandomMetricsService>();
 	collection.AddHostedService<SchedulingService>();
 })
 .ConfigureLogging((context, builder) =>

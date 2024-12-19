@@ -2,7 +2,7 @@
 
 namespace NeoSyncDemoData.Resources;
 
-public class DeviceLogFileResource : BaseDeviceResource
+public class DeviceLogFileResource : BaseDeviceInformationResource
 {
 	/// <summary>
 	/// Log name

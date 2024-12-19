@@ -5,13 +5,20 @@ namespace NeoSyncDemoData.Resources;
 /// <summary>
 /// Device information resource
 /// </summary>
-public class DeviceInformationResource : BaseDeviceResource
+public class BaseDeviceInformationResource
 {
-	/// <summary>
-	/// Firmware version
-	/// </summary>
-	/// <example>13.25.14</example>
-	[Required]
+    /// <summary>
+    /// Serial number
+    /// </summary>
+    /// <example>SN12345</example>
+    [Required]
+    public string SerialNumber { get; set; }
+
+    /// <summary>
+    /// Firmware version
+    /// </summary>
+    /// <example>13.25.14</example>
+    [Required]
 	public string FirmwareVersion { get; set; }
 
 	/// <summary>

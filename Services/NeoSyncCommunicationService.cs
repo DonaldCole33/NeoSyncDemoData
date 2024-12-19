@@ -22,7 +22,7 @@ public class NeoSyncCommunicationService
 		_client = client;
 	}
 
-	public async Task SendMetrics(DeviceMetricsResource resource)
+	public async Task SendMetrics(BaseDeviceInformationResource resource)
 	{
 		await PostAsync(NeoSyncApiRoutes.V1.Device.Metrics.SEND, resource);
 	}
@@ -37,7 +37,7 @@ public class NeoSyncCommunicationService
 		await PostAsync(NeoSyncApiRoutes.V1.Device.Logs.UPLOAD, resource);
 	}
 
-	private async Task PostAsync(string route, BaseDeviceResource resource)
+	private async Task PostAsync(string route, BaseDeviceInformationResource resource)
 	{
 		await RegisterDevice(resource);
 		var responseMessage = await _client.PostAsync(route, GetJsonContent(resource));
@@ -51,7 +51,7 @@ public class NeoSyncCommunicationService
 		responseMessage.EnsureSuccessStatusCode();
 	}
 
-	private async Task RegisterDevice(BaseDeviceResource resource)
+	private async Task RegisterDevice(BaseDeviceInformationResource resource)
 	{
 		if (!_registeredDevices.Contains(resource.SerialNumber))
 		{
@@ -61,8 +61,8 @@ public class NeoSyncCommunicationService
 		if (_client.DefaultRequestHeaders.Authorization == null)
 		{
 			var registrationResult = await _client.PostAsync(NeoSyncApiRoutes.V1.Device.REGISTER, GetJsonContent(
-				new DeviceInformationResource
-				{
+				new BaseDeviceInformationResource
+                {
 					SerialNumber = resource.SerialNumber,
 					FirmwareVersion = "3.2.1",
 					HardwareRevision = "9.8.1",
@@ -77,7 +77,7 @@ public class NeoSyncCommunicationService
 		}
 	}
 
-	private static StringContent GetJsonContent(BaseDeviceResource resource)
+	private static StringContent GetJsonContent(BaseDeviceInformationResource resource)
 	{
 		return new StringContent(JsonConvert.SerializeObject(resource), Encoding.UTF8, "application/json");
 	}

@@ -5,7 +5,7 @@ namespace NeoSyncDemoData.Resources;
 /// <summary>
 /// Device metrics resource
 /// </summary>
-public class DeviceMetricsResource : BaseDeviceResource
+public class DeviceMetricsResource : BaseDeviceInformationResource
 {
 	/// <summary>
 	/// Device metrics

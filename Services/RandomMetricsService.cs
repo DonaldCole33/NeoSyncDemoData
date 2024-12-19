@@ -1,75 +1,127 @@
-﻿using System.Diagnostics.Metrics;
+﻿using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Globalization;
+using System.Reflection;
 using System.Xml;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using RevogeneDemo.Contracts.Enums;
-using RevogeneDemo.Resources;
+using NeoSyncDemoData.Contracts.Enums;
+using NeoSyncDemoData.Resources;
 
-namespace RevogeneDemo.Services;
+namespace NeoSyncDemoData.Services;
 
 public interface IRandomMetricsService
 {
-	DeviceMetricResource CreateDeviceMetric();
+	Task Run();
 }
+
 
 public class RandomMetricsService : IRandomMetricsService
 {
-	private readonly ILogger<DirectoryScanner> _logger;
+    private readonly ILogger<RandomMetricsService> _logger;
 	private readonly NeoSyncCommunicationService _neoSyncCommunicationService;
-	private readonly SchedulingService _schedulingService;
 
     // memory-only file persistence to avoid duplicating results
-    private readonly List<string> _instruments = new List<string>();
-	private readonly static List<string> _MetricTypes = new List<string>();
+    private readonly List<string> _instruments = new List<string>()
+	{
+        "Instrument1",
+        "Instrument2",
+        "Instrument3",
+        "Instrument4",
+        "Instrument5"
+    };
+
 	private readonly List<string> _processedSurFiles = new List<string>();
 
 	private readonly string _serialNumber = "456def";
 
-	public RandomMetricsService(ILogger<DirectoryScanner> logger, IConfiguration config, NeoSyncCommunicationService neoSyncCommunicationService, SchedulingService schedulingService)
+	public RandomMetricsService(ILogger<RandomMetricsService> logger, IConfiguration config, NeoSyncCommunicationService neoSyncCommunicationService)
 	{
 		_logger = logger;
 		_neoSyncCommunicationService = neoSyncCommunicationService;
-        _schedulingService = schedulingService;
-		_schedulingService.StartAsync(new CancellationToken());
     }
 
-	private async Task ScanDirectory()
+    public async Task Run()
+    {
+        try
+        {
+            await UpdateMetrics();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Failed during update metrics");
+        }
+    }
+
+    private DeviceMetricResource CreateMetric(string Type, double Value)
 	{
-		_logger.LogInformation($"Scanning {_directoryToScan}");
-		if (!Directory.Exists(_directoryToScan))
-		{
-			_logger.LogError($"Directory {_directoryToScan} does not exist. Aborting scan.");
-			return;
-		}
+		return new DeviceMetricResource()
+        {
+            Name = Type,
+            Value = Value,
+            Timestamp = DateTimeOffset.Now
+        };
+    }
+
+	private async Task UpdateMetrics()
+	{
+		_logger.LogInformation($"Updating All Metrics");
 
 		DateTime startTime = DateTime.Now;
 		int resultsProcessed = 0;
 		int eventsProcessed = 0;
 		int metricsProcessed = 0;
-		DirectoryInfo directoryToScan = new (_directoryToScan);
+		DeviceMetricsResource metrics;
 
-		// Get Sample Results Reports and push data to NeoSync
-		var result = GetResultsFromHeader();
-		await _neoSyncCommunicationService.SendResults(result);
+		//update 5 devices
+		//all metrics for each device, some randomized values
 
-		// Get System Events Reports and upload as logs to NeoSync
-		foreach (var fileInfo in directoryToScan.GetFiles("SER_*.txt"))
+		foreach (var instrument in _instruments)
 		{
-			if (_processedSerFiles.Contains(fileInfo.Name)) continue;
-			await ProcessSerTxtFile(fileInfo);
-			_processedSerFiles.Add(fileInfo.Name);
-			eventsProcessed++;
+			metrics = new DeviceMetricsResource
+			{
+				SerialNumber = instrument,
+				Metrics = new List<DeviceMetricResource>
+				{
+					CreateMetric("SystemUptimeHours", 5),
+					CreateMetric("CumulativeTestingDays", 6),
+					CreateMetric("OverallTotalTests", 15),
+					CreateMetric("OverallPassedTests", 15),
+					CreateMetric("OverallFailedTests", 0),
+					CreateMetric("OverallSuccess", 100),
+					CreateMetric("InstrumentError", 1),
+					CreateMetric("Widget1RPMs", 2000),
+					CreateMetric("Pipette1000mlFills", 2346),
+					CreateMetric("FeatureXActivatedNumTimes", 3),
+					CreateMetric("SystemEventAOccured", 2)
+				}
+			};
+
+			await _neoSyncCommunicationService.SendMetrics(metrics);
+			metricsProcessed++;
+
+			//Results for each sample type
+			foreach (var sampleType in Enum.GetValues(typeof(SampleType)).Cast<SampleType>())
+			{
+				var result = GetDeviceResults(sampleType, instrument);
+				await _neoSyncCommunicationService.SendResults(result);
+				resultsProcessed++;
+			}
+
+			// Get System Events Reports and upload as logs to NeoSync
+			//foreach (var fileInfo in directoryToScan.GetFiles("SER_*.txt"))
+			//{
+			//	if (_processedSerFiles.Contains(fileInfo.Name)) continue;
+			//	await ProcessSerTxtFile(fileInfo);
+			//	_processedSerFiles.Add(fileInfo.Name);
+			//	eventsProcessed++;
+			//}
 		}
 
-		// Get System Usage Report and upload metrics to NeoSync
-		var metrics = GetMetricsFromHeader();
-		await _neoSyncCommunicationService.SendMetrics(metrics);
-
-		// todo: come up with some related metrics for the results? maybe from SUR files?
+		
 		DateTime endTime = DateTime.Now;
-		_logger.LogInformation($"Scanning finished! start: {startTime:O} finish: {endTime:O}, duration: {endTime.Subtract(startTime).TotalSeconds:F3} secs");
-		_logger.LogInformation($"Result reports processed: {resultsProcessed}, Event reports processed: {eventsProcessed}, Metric reports processed: {metricsProcessed}");
+		_logger.LogInformation($"Update Metrics finished! start: {startTime:O} finish: {endTime:O}, duration: {endTime.Subtract(startTime).TotalSeconds:F3} secs");
+		_logger.LogInformation($"Results processed: {resultsProcessed}, Events processed: {eventsProcessed}, Metrics processed: {metricsProcessed}");
 	}
 
 	private async Task ProcessSerTxtFile(FileInfo fileInfo)
@@ -84,24 +136,25 @@ public class RandomMetricsService : IRandomMetricsService
 		await _neoSyncCommunicationService.UploadLogs(resource);
 	}
 
-	private DeviceResultResource GetResultsFromHeader()
+	private DeviceResultResource GetDeviceResults(SampleType sampleType, string serialNumber)
 	{
 		var result = new DeviceResultResource
 		{
 			Version = 1,
 			MessageDate = DateTimeOffset.Now,
-			SampleType = SampleType.QualityControl,
-			SerialNumber = _serialNumber,
-			DeviceId = _serialNumber,
+			SampleType = sampleType,
+			SerialNumber = serialNumber,
+			DeviceId = serialNumber,
 			FirmwareVersion = "1.5.3",
 			LocationName = "San Francisco Lab",
 			CassetteTestType = "Sample 1",
 			ResultRecords = new List<DeviceResultRecordResource>(),
 			LotNumber = "Lot A" // required
 		};
-		var assayName = "Assay LDT";
+		
+		var assayName = "TriVerity";
 		var assayVersion = "1.1";
-		var assayClassification = "LDT";
+		var assayClassification = "IVD";
 		var assay = $"{assayName} ({assayVersion} / {assayClassification})";
 		var date = DateTimeOffset.Now.AddHours(-1);
 		var sequence = 1;
@@ -119,87 +172,4 @@ public class RandomMetricsService : IRandomMetricsService
 		return result;
 	}
 
-	private DeviceMetricsResource GetMetricsFromHeader()
-	{
-		var now = DateTimeOffset.Now;
-		var dateString = now.DateTime.ToString("MM/dd/yyyy HH:mm");
-		var date = DateTimeOffset.ParseExact(dateString, "MM/dd/yyyy HH:mm", new CultureInfo("en-US"));
-		var metrics = new DeviceMetricsResource
-		{
-			SerialNumber = _serialNumber,
-			Metrics = new List<DeviceMetricResource>
-			{
-				new DeviceMetricResource
-				{
-					Timestamp = date,
-					Name = "System Uptime Hours",
-					Value = 5
-				},
-				new DeviceMetricResource
-				{
-					Timestamp = date,
-					Name = "Cumulative Testing Days",
-					Value = 6
-				},
-				new DeviceMetricResource
-				{
-					Timestamp = date,
-					Name = "Overall Total Tests",
-					Value = 15
-				},
-				new DeviceMetricResource
-				{
-					Timestamp = date,
-					Name = "Overall Passed Tests",
-					Value = 15
-				},
-				new DeviceMetricResource
-				{
-					Timestamp = date,
-					Name = "Overall Failed Tests",
-					Value = 0
-				},
-				new DeviceMetricResource
-				{
-					Timestamp = date,
-					Name = "Overall Success Rate",
-					Value = 100
-				},
-				new DeviceMetricResource{
-					Timestamp = date,
-					Name = "Instrument Errors",
-					Value = 1
-				},
-								new DeviceMetricResource{
-					Timestamp = date,
-					Name = "Widget 1 RPMs",
-					Value = 2000
-				},
-												new DeviceMetricResource{
-					Timestamp = date,
-					Name = "Pipette 1000ml Fills",
-					Value = 2346
-				},
-												new DeviceMetricResource{
-					Timestamp = date,
-					Name = "Feature X Activated # times",
-					Value = 3
-				}
-			}
-		};
-
-		// foreach (XmlNode assayRecord in header.ParentNode!.SelectNodes("AssayRecords/AssayRecord")!)
-		// {
-		// 	if (assayRecord.SelectSingleNode("Lot_Number")?.InnerText != "--") continue;
-		// 	var name = assayRecord.SelectSingleNode("Assay")!.InnerText.Trim();
-		// 	metrics.Metrics.Add(new DeviceMetricResource
-		// 	{
-		// 		Timestamp = date,
-		// 		Name = $"{name} Success Rate",
-		// 		Value = double.Parse(header.SelectSingleNode("Success_Rate")!.InnerText.Replace("%", string.Empty))
-		// 	});
-		// }
-
-		return metrics;
-	}
 }

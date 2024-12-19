@@ -7,12 +7,12 @@ namespace NeoSyncDemoData.Services;
 public class SchedulingService : IHostedService
 {
 	private readonly ILogger _logger;
-	private readonly IDirectoryScanner _scanner;
+	private readonly IRandomMetricsService _randomMetricsService;
 
-	public SchedulingService(ILogger<SchedulingService> logger, IDirectoryScanner scanner)
+	public SchedulingService(ILogger<SchedulingService> logger, IRandomMetricsService metricsService)
 	{
 		_logger = logger;
-		_scanner = scanner;
+		_randomMetricsService = metricsService;
 	}
 
 	public Task StartAsync(CancellationToken cancellationToken)
@@ -27,13 +27,13 @@ public class SchedulingService : IHostedService
 	private void ScheduleDirectoryScan(Registry registry)
 	{
 		registry.Schedule(TriggerDirectoryScan).NonReentrant().ToRunNow().AndEvery(30).Seconds();
-		_logger.LogInformation("Schedule directory scan to run now and every 30 seconds");
+		_logger.LogInformation("Update Metrics to run now and every 30 seconds");
 	}
 
 	private void TriggerDirectoryScan()
 	{
-		_logger.LogInformation($"Triggered directory scan at {DateTime.Now}");
-		_scanner.Run().GetAwaiter().GetResult();
+		_logger.LogInformation($"Triggered update metrics at {DateTime.Now}");
+		_randomMetricsService.Run().GetAwaiter().GetResult();
 	}
 
 	public Task StopAsync(CancellationToken cancellationToken)
